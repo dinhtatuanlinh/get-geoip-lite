@@ -6,7 +6,7 @@ let getclientIP = (req, res, next) => {
     var ipInfo = getIP(req);
     console.log(ipInfo);
     let ip = '207.97.227.239';
-    var geo = geoip.lookup(ip);
+    var geo = geoip.lookup(ipInfo.clientIp);
     console.log(geo);
     // {
     //     range: [ 247162880, 247164927 ],
@@ -21,7 +21,7 @@ let getclientIP = (req, res, next) => {
     //   }
     geo.ip = ipInfo.clientIp;
     // res.status(200).json(geo);
-    let clientInfo = JSON.stringify(ipInfo);
+    let clientInfo = JSON.stringify(geo);
 
     res.send(clientInfo);
 };
