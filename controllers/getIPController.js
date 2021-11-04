@@ -20,7 +20,7 @@ let getclientIP = (req, res, next) => {
     //   }
     geo.ip = ipInfo.clientIp;
     // res.status(200).json(geo);
-    let clientInfo = JSON.stringify(req.headers);
+    let clientInfo = JSON.stringify(geo);
 
     res.send(clientInfo);
 };
