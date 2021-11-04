@@ -2,8 +2,9 @@ var getIP = require("ipware")().get_ip;
 var geoip = require("geoip-lite");
 
 let getclientIP = (req, res, next) => {
-    console.log(req.headers);
+    
     var ipInfo = getIP(req);
+    console.log(ipInfo);
     let ip = '207.97.227.239';
     var geo = geoip.lookup(ip);
     console.log(geo);
@@ -20,7 +21,7 @@ let getclientIP = (req, res, next) => {
     //   }
     geo.ip = ipInfo.clientIp;
     // res.status(200).json(geo);
-    let clientInfo = JSON.stringify(geo);
+    let clientInfo = JSON.stringify(ipInfo);
 
     res.send(clientInfo);
 };
